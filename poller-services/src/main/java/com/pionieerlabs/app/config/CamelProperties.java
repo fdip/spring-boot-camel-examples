@@ -3,9 +3,11 @@ package com.pionieerlabs.app.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-@ConfigurationProperties(prefix = "app", ignoreUnknownFields = false)
+@Setter
+@ConfigurationProperties(prefix = "camel", ignoreUnknownFields = false)
 public class CamelProperties {
 	private String generatorServiceUrl;
 	private String consumerServiceUrl;

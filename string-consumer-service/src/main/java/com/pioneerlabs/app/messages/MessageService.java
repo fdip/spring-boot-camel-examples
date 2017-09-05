@@ -8,7 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class MessageService {
 
-	public void process(Message message) {
+	public Message process(Message message) {
 		log.info("Received message: {}", message);
+		return message;
 	}
 }
