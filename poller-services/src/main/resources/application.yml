@@ -1,0 +1,7 @@
+server:
+  port: 8081
+
+camel:
+  generatorServiceUrl: http://localhost:9000/api
+  consumerServiceUrl: http://localhost:8082/api
+  pollingPeriod: 2000
