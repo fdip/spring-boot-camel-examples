@@ -1,7 +1,6 @@
 package com.pioneerlabs.app.messages;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,22 +10,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = NONE)
+@SpringBootTest
 public class MessageServiceTest {
+
 	@Autowired
 	private MessageService messageService;
 
+
 	@Test
-	public void shouldProcessValidMessage() throws Exception {
-		// Given
-		Message message = new Message(1L, "content");
+	public void shouldGenerateRandomMessage() throws Exception {
 
 		// When
-		Message processedMsg = messageService.process(message);
-
+		Message message = messageService.generateRandom();
 		// Then
-		assertThat(processedMsg.getId()).isEqualTo(1L);
-		assertThat(processedMsg.getContent()).isEqualTo("content");
+		assertThat(message.getId()).isEqualTo(1L);
+		assertThat(message.getContent()).isNotEmpty();
 	}
-
 }
