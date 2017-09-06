@@ -22,7 +22,7 @@ public class MessageServiceTest {
 		Message message = new Message(1L, "content");
 
 		// When
-		Message processedMsg = messageService.process(message);
+		Message processedMsg = messageService.save(message);
 
 		// Then
 		assertThat(processedMsg.getId()).isEqualTo(1L);
