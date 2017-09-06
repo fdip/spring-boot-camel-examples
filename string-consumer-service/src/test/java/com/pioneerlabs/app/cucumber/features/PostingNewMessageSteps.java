@@ -6,7 +6,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pioneerlabs.app.cucumber.CucumberStepsDefinition;
+import com.pioneerlabs.app.cucumber.StepsDefinition;
 import com.pioneerlabs.app.messages.Message;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@CucumberStepsDefinition
+@StepsDefinition
 public class PostingNewMessageSteps {
 	private Message newMessage;
 	private ResultActions result;
