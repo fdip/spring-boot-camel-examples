@@ -1,13 +1,13 @@
-package com.pioneerlabs.poc;
+package com.pioneerlabs.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootConfiguration {
+public class GeneratorServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootConfiguration.class, args);
+		SpringApplication.run(GeneratorServiceApplication.class, args);
 	}
 
 }

@@ -8,9 +8,9 @@ import com.pionieerlabs.app.config.CamelProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties({CamelProperties.class})
-public class Application {
+public class PollerServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(PollerServiceApplication.class, args);
 	}
 }

@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.pioneerlabs.poc;
+package com.pioneerlabs.app.messages;
 
+import com.pioneerlabs.app.GeneratorServiceApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,8 @@ import java.util.Map;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringBootConfiguration.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(properties = {"management.port=0"})
-public class HelloWorldConfigurationTests {
+@SpringBootTest(classes = GeneratorServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class MessageControllerTest {
 
 	@LocalServerPort
 	private int port;
@@ -46,10 +46,10 @@ public class HelloWorldConfigurationTests {
 	private TestRestTemplate testRestTemplate;
 
 	@Test
-	public void shouldReturn200WhenSendingRequestToController() throws Exception {
+	public void shouldReturn200WhenSendingRequestToGenerateRandomMessage() throws Exception {
 		@SuppressWarnings("rawtypes")
 		ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(
-				"http://localhost:" + this.port + "/broadcast", Map.class);
+				"http://localhost:" + this.port + "/api/messages", Map.class);
 
 		then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}
