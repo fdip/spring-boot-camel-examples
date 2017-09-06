@@ -12,5 +12,4 @@ public class DbServiceApplicationTest {
 	@Test
 	public void contextLoads() {
 	}
-
 }
