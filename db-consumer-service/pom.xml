@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>poller-services</name>
+	<name>db-consumer-service</name>
 	<description>Demo project for Camel integration</description>
 
 	<parent>
