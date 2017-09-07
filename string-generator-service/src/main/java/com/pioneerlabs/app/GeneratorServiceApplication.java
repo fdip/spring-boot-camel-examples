@@ -9,5 +9,4 @@ public class GeneratorServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GeneratorServiceApplication.class, args);
 	}
-
 }

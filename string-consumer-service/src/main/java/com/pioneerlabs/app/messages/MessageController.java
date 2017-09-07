@@ -15,7 +15,7 @@ public class MessageController {
 	private final MessageService messageService;
 
 	@PostMapping
-	ResponseEntity<Message> logMessage(@RequestBody Message message) {
-		return ResponseEntity.ok(messageService.process(message));
+	ResponseEntity<Message> save(@RequestBody Message message) {
+		return ResponseEntity.ok(messageService.save(message));
 	}
 }

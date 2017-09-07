@@ -12,6 +12,7 @@
 	<modules>
 		<module>poller-services</module>
 		<module>string-consumer-service</module>
+		<module>db-consumer-service</module>
 		<module>string-generator-service</module>
 	</modules>
 </project>
