@@ -30,7 +30,7 @@ public class MessageRoutes extends RouteBuilder {
 
 	private String buildFtpUri() {
 		MessageRouteProperties.Ftp ftp = routeProperties.getFtp();
-		return "ftp://" + ftp.getUsername() + "@" + ftp.getHost() + ":" + ftp.getPort() + "/?password=" + ftp.getPassword() + "&disconnect=true";
+		return String.format("ftp://%s@%s:%s/?password=%s&disconnect=true", ftp.getUsername(), ftp.getHost(), ftp.getPort(), ftp.getPassword());
 	}
 
 	private Supplier<Object> generateFileName() {
