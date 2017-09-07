@@ -1,7 +1,6 @@
 package com.pioneerlabs.app.messages.cucumber.features;
 
 import static org.hamcrest.Matchers.*;
-
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

@@ -1,15 +1,15 @@
 package com.pionieerlabs.app;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class DbServiceApplicationTest {
+import org.junit.runner.RunWith;
 
-	@Test
-	public void contextLoads() {
-	}
+@RunWith(SpringRunner.class)
+@ContextConfiguration
+@SpringBootTest
+@ActiveProfiles("test")
+public class DbServiceApplicationTest {
 }

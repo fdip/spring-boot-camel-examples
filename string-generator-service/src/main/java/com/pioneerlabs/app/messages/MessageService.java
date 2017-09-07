@@ -1,9 +1,9 @@
 package com.pioneerlabs.app.messages;
 
-import org.springframework.stereotype.Service;
-
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 

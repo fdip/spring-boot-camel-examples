@@ -15,9 +15,10 @@
  */
 package com.pioneerlabs.app.messages;
 
-import com.pioneerlabs.app.GeneratorServiceApplication;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.assertj.core.api.BDDAssertions.then;
+
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,9 +27,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Map;
-
-import static org.assertj.core.api.BDDAssertions.then;
+import com.pioneerlabs.app.GeneratorServiceApplication;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = GeneratorServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
