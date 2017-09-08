@@ -1,0 +1,4 @@
+pioneerlabs:
+  generatorServiceUrl: https://dev:8082/api/v1
+  consumerServiceUrl: https://dev:8081/api/v1
+  pollingPeriod: 5000
