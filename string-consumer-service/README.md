@@ -22,9 +22,14 @@ and runs the camel cron job to get all messages from db and send it to FTP serve
  - Java 8
  - FTP server
  - mvn
-
+ 
 ### Running it locally
 ```mvn spring-boot:run```
+
+Download a [one-ftpserver](https://github.com/benelog/one-ftpserver) and run it using below command:
+```
+java -jar one-ftpserver.jar port=10021 id=pionieerlabs password=changeme
+```
 ## Features
 
 ### Endpoints
