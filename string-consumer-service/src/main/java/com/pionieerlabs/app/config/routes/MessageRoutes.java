@@ -22,10 +22,13 @@ public class MessageRoutes extends RouteBuilder {
 		from("quartz2://jobTimer?cron=" + routeProperties.getCronTrigger())
 			.bean(messageService, "findAll")
 			.log("Processed message ${body.size}")
-			.marshal()
-			.json(JsonLibrary.Jackson)
-			.setHeader("CamelFileName", generateFileName())
-			.to(buildFtpUri());
+			.hystrix()
+				.marshal()
+				.json(JsonLibrary.Jackson)
+				.setHeader("CamelFileName", generateFileName())
+				.to(buildFtpUri())
+	        .onFallback().log("FTP server not available")
+	        .end();
 	}
 
 	private String buildFtpUri() {

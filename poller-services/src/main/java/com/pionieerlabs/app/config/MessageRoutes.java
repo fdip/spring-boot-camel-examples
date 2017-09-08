@@ -14,10 +14,18 @@ public class MessageRoutes extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		from("timer://message?period=" + properties.getPollingPeriod())
-			.setHeader(Exchange.HTTP_METHOD, simple("GET"))
-			.to(properties.getGeneratorServiceUrl() + "/messages/generate")
-			.log("Polling")
-			.setHeader(Exchange.HTTP_METHOD, constant("POST"))
-			.to(properties.getConsumerServiceUrl() + "/messages");
+			.hystrix()
+				.setHeader(Exchange.HTTP_METHOD, simple("GET"))
+				.to(properties.getGeneratorServiceUrl() + "/messages/generate")
+				.log("Polling")
+            .onFallback()
+                .log("generator-service not available")
+            .end()
+            .hystrix()
+				.setHeader(Exchange.HTTP_METHOD, constant("POST"))
+				.to(properties.getConsumerServiceUrl() + "/messages")
+            .onFallback()
+                .log("consumer-service not available")
+	        .end();
 	}
 }
