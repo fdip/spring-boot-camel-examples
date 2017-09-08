@@ -23,6 +23,7 @@ app:
       message:
         cronTrigger: "0/15 * * * * ?"
         ftp:
+          protocol: ftp
           username: pionieerlabs
           password: changeme
           host: localhost

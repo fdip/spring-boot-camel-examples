@@ -15,11 +15,10 @@ public class MessageRouteProperties {
 	@Getter
 	@Setter
 	public static class Ftp {
+		private String protocol = "sftp";
 		private String username;
 		private String password;
 		private String host = "localhost";
 		private int port = 21;
 	}
-
-
 }

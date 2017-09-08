@@ -23,17 +23,17 @@ public class MessageRoutes extends RouteBuilder {
 			.bean(messageService, "findAll")
 			.log("Processed message ${body.size}")
 			.hystrix()
-				.marshal()
-				.json(JsonLibrary.Jackson)
-				.setHeader("CamelFileName", generateFileName())
-				.to(buildFtpUri())
-	        .onFallback().log("FTP server not available")
-	        .end();
+			.marshal()
+			.json(JsonLibrary.Jackson)
+			.setHeader("CamelFileName", generateFileName())
+			.to(buildFtpUri())
+			.onFallback().log("FTP server not available")
+			.end();
 	}
 
 	private String buildFtpUri() {
 		MessageRouteProperties.Ftp ftp = routeProperties.getFtp();
-		return String.format("ftp://%s@%s:%s/?password=%s&disconnect=true", ftp.getUsername(), ftp.getHost(), ftp.getPort(), ftp.getPassword());
+		return String.format("%s://%s@%s:%s/?password=%s&disconnect=true", ftp.getProtocol(), ftp.getUsername(), ftp.getHost(), ftp.getPort(), ftp.getPassword());
 	}
 
 	private Supplier<Object> generateFileName() {

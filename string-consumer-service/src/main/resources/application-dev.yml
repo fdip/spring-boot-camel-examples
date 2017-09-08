@@ -1,0 +1,10 @@
+app:
+  camel:
+    routes:
+      message:
+        ftp:
+          protocol: sftp
+          username: devUser
+          password: changeme
+          host: dev
+          port: 21
