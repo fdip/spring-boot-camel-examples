@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -17,6 +19,7 @@ import org.junit.runner.RunWith;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
+@Transactional
 public class MessageServiceTest  {
 
 	@Autowired
@@ -31,7 +34,7 @@ public class MessageServiceTest  {
 		// When
 		List<Message> all = messageService.findAll();
 		// Then
-		assertThat(all.size()).isEqualTo(2);
+		assertThat(all).hasSize(2);
 	}
 
 	@Test
@@ -42,11 +45,11 @@ public class MessageServiceTest  {
 		// When
 		List<Message> all = messageService.findAll();
 		// Then
-		assertThat(all.isEmpty());
+		assertThat(all).isEmpty();
 	}
 
 	@Test
-	public void shouldProcessValidMessage() throws Exception {
+	public void shouldSaveValidMessage() throws Exception {
 		// Given
 		Message message = new Message(1L, "content");
 

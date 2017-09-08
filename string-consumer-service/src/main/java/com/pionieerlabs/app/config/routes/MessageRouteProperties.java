@@ -11,9 +11,6 @@ import lombok.Setter;
 public class MessageRouteProperties {
 	private String cronTrigger = "0/15 * * * * ?";
 	private Ftp ftp = new Ftp();
-	private String generatorServiceUrl;
-	private String consumerServiceUrl;
-	private int pollingPeriod = 1000;
 
 	@Getter
 	@Setter
