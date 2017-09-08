@@ -37,8 +37,8 @@ To build all projects run:
 ### Running it locally
 See description in each project:
 
- [string-consumer-service](/string-consumer-service/README.md/)
- [string-generator-service](/string-generator-service/README.md/)
+ [string-consumer-service](/string-consumer-service/README.md/)    
+ [string-generator-service](/string-generator-service/README.md/)    
  [poller-service](/poller-services/README.md/)   
  [db-consumer-service](/db-consumer-service/README.md/)   
 
