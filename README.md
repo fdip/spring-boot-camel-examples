@@ -37,10 +37,10 @@ To build all projects run:
 ### Running it locally
 See description in each project:
 
- [db-consumer-service](/db-consumer-service/Readme.md/)   
- [string-generator-service](/string-generator-service/Readme.md/)   
- [poller-service](/poller-service/Readme.md/)   
- [db-consumer-service](/db-consumer-service/Readme.md/)   
+ [db-consumer-service](/db-consumer-service/README.md/)   
+ [string-generator-service](/string-generator-service/README.md/)   
+ [poller-service](/poller-services/README.md/)   
+ [db-consumer-service](/db-consumer-service/README.md/)   
 
 
 ## How to guides
