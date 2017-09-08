@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.pionieerlabs.app.messages.MessageService;
 import lombok.AllArgsConstructor;
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
@@ -19,13 +20,23 @@ public class MessageRoutes extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
+
+		from("timer://message?period=" + routeProperties.getPollingPeriod())
+			.setHeader(Exchange.HTTP_METHOD, simple("GET"))
+			.to(routeProperties.getGeneratorServiceUrl() + "/messages")
+			.log("Polling")
+			.setHeader(Exchange.HTTP_METHOD, constant("POST"))
+			.to(routeProperties.getConsumerServiceUrl() + "/messages");
+
 		from("quartz2://jobTimer?cron=" + routeProperties.getCronTrigger())
 			.bean(messageService, "findAll")
-			.log("Processed message ${body.size}")
-			.marshal()
-			.json(JsonLibrary.Jackson)
-			.setHeader("CamelFileName", generateFileName())
-			.to(buildFtpUri());
+			.log("Processed message ${body.size}");
+			//.marshal()
+			//.json(JsonLibrary.Jackson)
+			//.setHeader("CamelFileName", generateFileName())
+			//.to(buildFtpUri());
+
+
 	}
 
 	private String buildFtpUri() {
