@@ -8,6 +8,9 @@ continuously polls from the string-generator-service and post to the string-cons
  - Spring Boot 
  - Camel 
  - mvn 
+ - Hystrix
+ - Hystrix dashbord
+ - Hawtio
 
 ## Getting Started
 

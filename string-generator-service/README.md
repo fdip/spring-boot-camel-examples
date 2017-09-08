@@ -17,13 +17,12 @@ expose a GET endpoint that returns randomly generated messages (runs on port: 80
 ### System requirements
  - Java 8
 
-
 ### Running it locally
 ```mvn spring-boot:run```
 ## Features
 
 ### Endpoints
-- **<code>GET</code> api/messages** return new message
+- **<code>GET</code> api/v1/messages** return new message
 
 ```$xslt
 {
