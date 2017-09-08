@@ -15,7 +15,7 @@ public class MessageRoutes extends RouteBuilder {
 	public void configure() throws Exception {
 		from("timer://message?period=" + properties.getPollingPeriod())
 			.setHeader(Exchange.HTTP_METHOD, simple("GET"))
-			.to(properties.getGeneratorServiceUrl() + "/messages")
+			.to(properties.getGeneratorServiceUrl() + "/messages/generate")
 			.log("Polling")
 			.setHeader(Exchange.HTTP_METHOD, constant("POST"))
 			.to(properties.getConsumerServiceUrl() + "/messages");

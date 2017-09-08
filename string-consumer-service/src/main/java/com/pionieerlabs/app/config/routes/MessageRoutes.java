@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.pionieerlabs.app.messages.MessageService;
 import lombok.AllArgsConstructor;
-import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 
@@ -22,13 +21,11 @@ public class MessageRoutes extends RouteBuilder {
 	public void configure() throws Exception {
 		from("quartz2://jobTimer?cron=" + routeProperties.getCronTrigger())
 			.bean(messageService, "findAll")
-			.log("Processed message ${body.size}");
-			//.marshal()
-			//.json(JsonLibrary.Jackson)
-			//.setHeader("CamelFileName", generateFileName())
-			//.to(buildFtpUri());
-
-
+			.log("Processed message ${body.size}")
+			.marshal()
+			.json(JsonLibrary.Jackson)
+			.setHeader("CamelFileName", generateFileName())
+			.to(buildFtpUri());
 	}
 
 	private String buildFtpUri() {

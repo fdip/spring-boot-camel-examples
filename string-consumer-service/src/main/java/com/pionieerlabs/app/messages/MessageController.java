@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/messages")
+@RequestMapping("/api/v1/messages")
 @AllArgsConstructor
 public class MessageController {
 	private final MessageService messageService;

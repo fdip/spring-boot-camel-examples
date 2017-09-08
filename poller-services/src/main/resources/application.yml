@@ -2,6 +2,6 @@ server:
   port: 8080
 
 pioneerlabs:
-  generatorServiceUrl: http://localhost:8082/api
-  consumerServiceUrl: http://localhost:8081/api
+  generatorServiceUrl: http://localhost:8082/api/v1
+  consumerServiceUrl: http://localhost:8081/api/v1
   pollingPeriod: 2000
