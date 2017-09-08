@@ -5,3 +5,12 @@ pioneerlabs:
   generatorServiceUrl: http://localhost:8082/api/v1
   consumerServiceUrl: http://localhost:8081/api/v1
   pollingPeriod: 2000
+
+endpoints:
+  jolokia:
+    sensitive: false
+
+camel:
+  springboot:
+    jmxEnabled: true
+    name: poller-services
