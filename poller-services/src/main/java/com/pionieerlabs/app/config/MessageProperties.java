@@ -12,4 +12,7 @@ public class MessageProperties {
 	private String generatorServiceUrl;
 	private String consumerServiceUrl;
 	private int pollingPeriod = 1000;
+	private int hystrixCorePoolSize = 1;
+	private String hystrixGroupKey = "messages";
+	private String hystrixThreadPoolKey = "messages";
 }
